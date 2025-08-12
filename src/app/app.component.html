@@ -11,7 +11,9 @@
     <app-weather-display [data]="weatherData"></app-weather-display>
     <app-outfit-suggestion 
       [temperature]="weatherData.temperature"
-      [condition]="weatherData.condition">
+      [condition]="weatherData.condition"
+      [wind]="weatherData.wind"
+      [humidity]="weatherData.humidity">
     </app-outfit-suggestion>
   </div>
 
