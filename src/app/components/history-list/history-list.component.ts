@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { HistoryCity } from '../../interfaces/history-city.interface';
 
 @Component({
   selector: 'app-history-list',
@@ -9,10 +10,10 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./history-list.component.scss']
 })
 export class HistoryListComponent {
-  @Input() history: string[] = [];
-  @Output() citySelect = new EventEmitter<string>();
+  @Input() history: HistoryCity[] = [];
+  @Output() citySelect = new EventEmitter<HistoryCity>();
 
-  selectCity(city: string) {
+  selectCity(city: HistoryCity) {
     this.citySelect.emit(city);
   }
 }

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { WeatherService } from '../../services/weather.service';
 import { debounceTime, Subject } from 'rxjs';
+import { CitySuggestion } from '../../interfaces/city-suggestion.interface';
 
 @Component({
   selector: 'app-search-bar',
@@ -15,21 +16,39 @@ export class SearchBarComponent implements OnInit {
   city = '';
   @Output() citySearch = new EventEmitter<string>();
 
-  suggestions: string[] = [];
+  suggestions: CitySuggestion[] = [];
+  loading = false;
+  errorMsg = '';
   private inputChanged$ = new Subject<string>();
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit() {
     this.inputChanged$
-      .pipe(debounceTime(200))
+  .pipe(debounceTime(500))
       .subscribe(value => {
         this.suggestions = [];
+        this.errorMsg = '';
         if (value.trim().length > 0) {
-          const allCities = this.weatherService.getAllCities();
-          this.suggestions = allCities.filter(city =>
-            city.toLowerCase().startsWith(value.trim().toLowerCase())
-          );
+          this.loading = true;
+          this.weatherService.getCitySuggestions(value).subscribe({
+            next: (results) => {
+              this.loading = false;
+              if (results.length === 0) {
+                this.errorMsg = 'No city found with name ' + value + '.';
+                this.suggestions = [];
+              } else {
+                this.suggestions = results;
+              }
+            },
+            error: () => {
+              this.loading = false;
+              this.errorMsg = 'Error fetching suggestions. please try after some time';
+              this.suggestions = [];
+            }
+          });
+        } else {
+          this.loading = false;
         }
       });
   }
@@ -38,17 +57,16 @@ export class SearchBarComponent implements OnInit {
     this.inputChanged$.next(this.city);
   }
 
-  selectSuggestion(s: string) {
-    this.city = s;
+  @Output() citySelected = new EventEmitter<CitySuggestion>();
+
+  selectSuggestion(s: CitySuggestion) {
+    this.city = `${s.name}, ${s.state || ''}, ${s.country}`;
     this.suggestions = [];
-    this.searchCity();
+    this.citySelected.emit(s);
   }
 
   searchCity() {
-    if (this.city.trim()) {
-      this.citySearch.emit(this.city.trim());
-      this.city = '';
-      this.suggestions = [];
-    }
+    // Only allow search via suggestion selection for API accuracy
+    this.suggestions = [];
   }
 }

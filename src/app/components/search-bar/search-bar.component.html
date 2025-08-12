@@ -2,7 +2,11 @@
   <input [(ngModel)]="city" (input)="onInputChange()" placeholder="Enter city name" autocomplete="off" />
   <button (click)="searchCity()">Search</button>
 
-  <ul *ngIf="suggestions.length > 0" class="suggestions-dropdown">
-    <li *ngFor="let s of suggestions" (click)="selectSuggestion(s)">{{ s }}</li>
+  <div *ngIf="loading" class="search-loader">Loading...</div>
+  <div *ngIf="errorMsg && !loading" class="search-error">{{ errorMsg }}</div>
+  <ul *ngIf="suggestions.length > 0 && !loading" class="suggestions-dropdown">
+    <li *ngFor="let s of suggestions" (click)="selectSuggestion(s)">
+      {{ s.name }}<span *ngIf="s.state">, {{ s.state }}</span>, {{ s.country }}
+    </li>
   </ul>
 </div>

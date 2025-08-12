@@ -29,6 +29,10 @@ body {
   border-radius: 16px;
   box-shadow: 0 4px 24px var(--color-shadow);
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 body {
   background: var(--color-bg-gradient);

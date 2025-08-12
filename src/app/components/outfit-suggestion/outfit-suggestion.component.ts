@@ -21,10 +21,10 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class OutfitSuggestionComponent {
-  @Input() temperature!: number;
+  @Input() temperature!: number; // Celsius
   @Input() condition!: string;
-  @Input() wind!: number;
-  @Input() humidity!: number;
+  @Input() wind!: number; // speed in km/h
+  @Input() humidity!: number; // %
 
   get suggestion(): string {
     if (this.temperature === undefined || this.temperature === null) return '';

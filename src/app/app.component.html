@@ -5,18 +5,17 @@
     </button>
   </div>
   <h1>Weather-Based Outfit Recommender</h1>
-  <app-search-bar (citySearch)="onCitySelected($event)"></app-search-bar>
+  <app-search-bar (citySelected)="onCitySuggestionSelected($event)"></app-search-bar>
 
   <div class="row" *ngIf="weatherData">
     <app-weather-display [data]="weatherData"></app-weather-display>
     <app-outfit-suggestion 
-      [temperature]="weatherData.temperature"
-      [condition]="weatherData.condition"
-      [wind]="weatherData.wind"
-      [humidity]="weatherData.humidity">
+      [temperature]="(weatherData.main.temp - 273.15)"
+      [condition]="weatherData.weather[0].main"
+      [wind]="weatherData.wind.speed"
+      [humidity]="weatherData.main.humidity">
     </app-outfit-suggestion>
   </div>
 
-  <app-history-list [history]="history" (citySelect)="onCitySelected($event)">
-  </app-history-list>
+  <app-history-list [history]="history" (citySelect)="onHistoryCitySelected($event)"></app-history-list>
 </div>
