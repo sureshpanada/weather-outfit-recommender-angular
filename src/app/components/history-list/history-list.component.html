@@ -1,4 +1,4 @@
-<div class="history" *ngIf="history.length > 0">
+<div class="history" *ngIf="history && history.length > 0">
   <div class="history-title">Search History</div>
   <ul>
     <li *ngFor="let city of history" (click)="selectCity(city)" tabindex="0" role="button">
