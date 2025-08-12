@@ -1,15 +1,77 @@
+// Auto-suggest dropdown styles
+
+.search-bar {
+  position: relative;
+}
+.suggestions-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #b0c4de;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(102,166,255,0.13);
+  z-index: 10;
+  list-style: none;
+  margin: 2px 0 0 0;
+  padding: 0;
+}
+.suggestions-dropdown li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.suggestions-dropdown li:hover {
+  background: #e0eafc;
+}
+
+// Dark theme support
+.container.dark .suggestions-dropdown {
+  background: #181a20;
+  color: #e0eafc;
+  border: 1px solid #444;
+}
+.container.dark .suggestions-dropdown li {
+  color: #e0eafc;
+}
+.container.dark .suggestions-dropdown li:hover {
+  background: #313543;
+  color: #fff;
+}
+
 .search-bar {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 input {
-  padding: 5px;
-  width: 200px;
+  padding: 8px 12px;
+  width: 220px;
+  border-radius: 6px;
+  border: 1px solid #b0c4de;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+input:focus {
+  border-color: #66a6ff;
+  outline: none;
 }
 
 button {
-  padding: 5px 10px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background: linear-gradient(120deg, #66a6ff 0%, #89f7fe 100%);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(102,166,255,0.13);
+  transition: background 0.2s;
+}
+button:hover {
+  background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
 }

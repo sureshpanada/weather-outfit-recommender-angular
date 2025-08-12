@@ -1,7 +1,16 @@
+
 .weather-card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 5px;
-  width: 45%;
-  box-shadow: 2px 2px 8px #ccc;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 24px 18px;
+  min-width: 260px;
+  max-width: 340px;
+  margin: auto;
+  color: #2a3a4d;
+  font-size: 1.1rem;
+  transition: box-shadow 0.3s;
+}
+.weather-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
 }

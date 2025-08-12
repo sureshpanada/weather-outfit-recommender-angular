@@ -17,6 +17,8 @@ export class AppComponent {
   weatherData: any = null;
   history: string[] = [];
 
+  theme: 'light' | 'dark' = 'light';
+
   constructor(private weatherService: WeatherService) {}
 
   onCitySelected(city: string) {
@@ -26,5 +28,9 @@ export class AppComponent {
         this.history.unshift(city);
       }
     });
+  }
+
+  toggleTheme() {
+    this.theme = this.theme === 'light' ? 'dark' : 'light';
   }
 }

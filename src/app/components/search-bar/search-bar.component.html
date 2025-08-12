@@ -1,4 +1,8 @@
-<div class="search-bar">
-  <input [(ngModel)]="city" placeholder="Enter city name" />
+<div class="search-bar" style="position:relative;">
+  <input [(ngModel)]="city" (input)="onInputChange()" placeholder="Enter city name" autocomplete="off" />
   <button (click)="searchCity()">Search</button>
+
+  <ul *ngIf="suggestions.length > 0" class="suggestions-dropdown">
+    <li *ngFor="let s of suggestions" (click)="selectSuggestion(s)">{{ s }}</li>
+  </ul>
 </div>
