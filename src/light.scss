@@ -1,8 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
-@import './light.scss';
-@import './dark.scss';
-
 :root {
   --color-bg: #e0eafc;
   --color-bg-gradient: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
@@ -17,10 +12,4 @@
   --color-history-hover: #e0eafc;
   --color-btn-bg: linear-gradient(120deg, #66a6ff 0%, #89f7fe 100%);
   --color-btn-hover: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-}
-
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  min-height: 100vh;
-  background: var(--color-bg-gradient);
 }

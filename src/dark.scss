@@ -1,0 +1,15 @@
+body.dark-theme {
+  --color-bg: #181a20;
+  --color-bg-gradient: linear-gradient(120deg, #181a20 0%, #23272f 100%);
+  --color-container: #181a20;
+  --color-text: #e0eafc;
+  --color-heading: #e0eafc;
+  --color-card1: linear-gradient(120deg, #9bbb17 0%, #0b278c 100%);
+  --color-card2: linear-gradient(120deg, #23272f 0%, #313543 100%);
+  --color-border: #444;
+  --color-shadow: rgba(0,0,0,0.13);
+  --color-history-bg: #181a20;
+  --color-history-hover: #313543;
+  --color-btn-bg: #23272f;
+  --color-btn-hover: #313543;
+}

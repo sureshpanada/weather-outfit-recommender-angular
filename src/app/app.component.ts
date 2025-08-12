@@ -32,5 +32,10 @@ export class AppComponent {
 
   toggleTheme() {
     this.theme = this.theme === 'light' ? 'dark' : 'light';
+    if (this.theme === 'dark') {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
   }
 }
