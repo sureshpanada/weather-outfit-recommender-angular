@@ -1,27 +1,44 @@
 
+
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
   min-height: 100vh;
+}
+
+:root {
+  --color-bg: #e0eafc;
+  --color-bg-gradient: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+  --color-container: #fff;
+  --color-text: #2a3a4d;
+  --color-heading: #2a3a4d;
+  --color-card1: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  --color-card2: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  --color-border: #b0c4de;
+  --color-shadow: rgba(0,0,0,0.08);
+  --color-history-bg: #f7fafd;
+  --color-history-hover: #e0eafc;
+  --color-btn-bg: linear-gradient(120deg, #66a6ff 0%, #89f7fe 100%);
+  --color-btn-hover: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
 }
 
 .container {
   max-width: 900px;
   margin: 32px auto;
   padding: 32px 16px;
-  background: #fff;
+  background: var(--color-container);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px var(--color-shadow);
   text-align: center;
 }
-
+body {
+  background: var(--color-bg-gradient);
+}
 h1 {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 24px;
-  color: #2a3a4d;
+  color: var(--color-heading);
 }
-
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -29,7 +46,6 @@ h1 {
   justify-content: center;
   margin-top: 32px;
 }
-
 @media (max-width: 700px) {
   .container {
     padding: 12px 2px;
@@ -39,16 +55,27 @@ h1 {
     gap: 16px;
   }
 }
-
 .container.dark {
-  background: #23272f;
-  color: #e0eafc;
+  --color-bg: #181a20;
+  --color-bg-gradient: linear-gradient(120deg, #181a20 0%, #23272f 100%);
+  --color-container: #181a20;
+  --color-text: #e0eafc;
+  --color-heading: #e0eafc;
+  --color-card1: linear-gradient(120deg, #23272f 0%, #313543 100%);
+  --color-card2: linear-gradient(120deg, #23272f 0%, #313543 100%);
+  --color-border: #444;
+  --color-shadow: rgba(0,0,0,0.13);
+  --color-history-bg: #181a20;
+  --color-history-hover: #313543;
+  --color-btn-bg: #23272f;
+  --color-btn-hover: #313543;
 }
 .container.dark h1 {
-  color: #e0eafc;
+  color: var(--color-heading);
 }
-.container.dark .theme-toggle button {
-  background: #23272f;
-  color: #e0eafc;
-  border: 1px solid #444;
+.container .theme-toggle button {
+  background: var(--color-btn-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
 }
