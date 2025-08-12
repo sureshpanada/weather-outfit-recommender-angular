@@ -1,0 +1,15 @@
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+input {
+  padding: 5px;
+  width: 200px;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}

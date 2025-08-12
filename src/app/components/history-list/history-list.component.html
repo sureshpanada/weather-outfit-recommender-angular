@@ -1,0 +1,8 @@
+<div class="history" *ngIf="history.length > 0">
+  <h3>Search History</h3>
+  <ul>
+    <li *ngFor="let city of history" (click)="selectCity(city)" tabindex="0" role="button">
+      {{ city }}
+    </li>
+  </ul>
+</div>
